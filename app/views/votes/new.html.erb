@@ -1,0 +1,25 @@
+<h1>新增投票</h1>
+
+<%= form_with(model: @votes) do |f| %>
+  <div class="form-control">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+  <div class="form-control">
+    <%= f.label :party %>
+    <%= f.text_field :party %>
+  </div>
+  <div class="form-control">
+    <%= f.label :age %>
+    <%= f.number_field :age %>
+  </div>
+  <div class="form-control">
+    <%= f.label :politics %>
+    <%= f.text_field :papoliticsrty %>
+  </div>
+  <div class="form-control">
+    <%= f.label :votes %>
+    <%= f.number_field :votes %>
+  </div>
+  <%= f.submit %>
+<% end %>

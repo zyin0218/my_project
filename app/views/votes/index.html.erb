@@ -1,0 +1,12 @@
+<h1>投票列表</h1>
+
+<%= link_to "新增投票", new_vote_path %>
+<ul>
+  <% @votes.each do |vote| %>
+    <li>
+      <%= link_to vote.name, vote_path(vote) %>
+      ｜
+      <%= link_to "刪除", vote_path(vote), method: "delete", data: {confirm: "確定刪除？"} %>
+    </li>
+  <% end %>
+</ul>
