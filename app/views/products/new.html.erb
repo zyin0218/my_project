@@ -1,5 +1,25 @@
 <h1>新增商品</h1>
 
-<form action="" method="">
+<%= form_with(model: @products) do |f| %>
+  <div class="form-control">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
 
-</form>
+  <div class="form-control">
+    <%= f.label :description %>
+    <%= f.text_area :description %>
+  </div>
+
+  <div class="form-control">
+    <%= f.label :price %>
+    <%= f.number_field :price %>
+  </div>
+
+  <div class="form-control">
+    <%= f.label :sku %>
+    <%= f.number_field :sku %>
+  </div>
+
+  <%= f.submit %>
+<% end %>
