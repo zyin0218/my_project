@@ -1,0 +1,25 @@
+<h1>編輯商品</h1>
+
+<%= form_with(model: @products) do |f| %>
+  <div class="form-control">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+
+  <div class="form-control">
+    <%= f.label :description %>
+    <%= f.text_area :description %>
+  </div>
+
+  <div class="form-control">
+    <%= f.label :price %>
+    <%= f.number_field :price %>
+  </div>
+
+  <div class="form-control">
+    <%= f.label :sku %>
+    <%= f.number_field :sku %>
+  </div>
+
+  <%= f.submit %>
+<% end %>

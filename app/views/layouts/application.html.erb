@@ -11,6 +11,10 @@
   </head>
 
   <body>
+    <%#= flash[:notice] %> <!-- 可以簡寫成下面 -->
+    <%= notice %>
+
+    <%= render "partials/navbar" %>
     <%= yield %>
   </body>
 </html>

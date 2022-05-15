@@ -1,30 +1,41 @@
 class ProductsController < ApplicationController
-  
+  before_action :find_product, only: [:show, :edit, :update, :destroy]
+
   def index
     @products = Product.all
   end
 
+  def show
+  end
+
   def new
-    @products = Product.new
+    @product = Product.new
   end
 
   def create
-    @products = Product.new(product_params)
-    if @products.save
-      redirect_to root_path
+    @product = Product.new(product_params)
+
+    if @product.save
+      redirect_to root_path, notice: "商品新增成功"
     else
       render :new
     end
   end
 
-  def show
-    @products = Product.find(params["id"])
+  def edit
+  end
+
+  def update
+    if @product.update(product_params)
+      redirect_to root_path, notice: "商品更新成功"
+    else
+      render :edit
+    end
   end
 
   def destroy
-    @products = Product.find(params["id"])
-    @products.destroy
-    redirect_to root_path
+    @product.destroy
+    redirect_to root_path, notice: "商品已刪除"
   end
 
   private
@@ -33,5 +44,9 @@ class ProductsController < ApplicationController
     params.require(:product).permit(
       :title, :price, :sku, :description
     )
+  end
+
+  def find_product
+    @product = Product.find(params["id"])
   end
 end
