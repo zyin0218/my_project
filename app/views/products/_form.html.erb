@@ -1,0 +1,37 @@
+<% if product.errors.any? %>
+  <ul>
+    <% product.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= form_with(model: product) do |f| %>
+
+  <div class="field">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+
+  <div class="form-control">
+    <%= f.label :cover %>
+    <%= f.file_field :cover %>
+  </div>
+
+  <div class="field">
+    <%= f.label :description %>
+    <%= f.text_area :description %>
+  </div>
+
+  <div class="field">
+    <%= f.label :price %>
+    <%= f.number_field :price %>
+  </div>
+
+  <div class="field">
+    <%= f.label :sku %>
+    <%= f.number_field :sku, disabled: product.persisted? %>
+  </div>
+
+  <%= f.submit %>
+<% end %>

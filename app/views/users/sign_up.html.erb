@@ -1,21 +1,21 @@
 <h1>註冊</h1>
 
-<%= form_with(model: @user) do |f| %>
-  <div class="form-control">
-    <%= f.label :email %>
-    <%= f.email_field :email %>
+<%= form_with(model: @user) do |form| %>
+  <div class="field">
+    <%= form.label :email %>
+    <%= form.email_field :email %>
   </div>
-  <div class="form-control">
-    <%= f.label :password %>
-    <%= f.password_field :password %>
+  <div class="field">
+    <%= form.label :password %>
+    <%= form.password_field :password %>
   </div>
-  <div class="form-control">
-    <%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation %>
+  <div class="field">
+    <%= form.label :password_confirmation %>
+    <%= form.password_field :password_confirmation %>
   </div>
-  <div class="form-control">
-    <%= f.label :name %>
-    <%= f.text_field :name %>
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
   </div>
-  <%= f.submit "註冊" %>
+  <%= form.submit "註冊" %>
 <% end %>

@@ -1,2 +1,2 @@
-<h1>商品 <%= @products.title %></h1>
-
+<h1>商品 <%= @product.title %></h1>
+<%= image_tag @product.cover.variant(resize_to_limit: [100, 100]) if @product.cover.attached? %>

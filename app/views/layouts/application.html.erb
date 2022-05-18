@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>MyProject</title>
+    <title>EPlatform</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -11,10 +11,8 @@
   </head>
 
   <body>
-    <%#= flash[:notice] %> <!-- 可以簡寫成下面 -->
     <%= notice %>
-
-    <%= render "partials/navbar" %>
+    <%= render "shared/navbar" %>
     <%= yield %>
   </body>
 </html>
