@@ -10,4 +10,8 @@ class User < ApplicationRecord
 
   has_many :user_favorites
   has_many :favorite_products, through: :user_favorites, source: :product
+
+  def like?(product)
+    favorite_products.exists?(product.id)
+  end
 end

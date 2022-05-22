@@ -1,8 +1,20 @@
 <h1>商品 <%= @product.title %></h1>
 
-<%= link_to "收藏", like_product_path(@product), method: "post" %>
+<!-- 收藏 -->
+<div data-controller="favorite" data-id="<%= @product.id %>" data-favorite="<%= current_user&.like?(@product) %>">
+  <button data-action="click->favorite#like" data-favorite-target="likeBtn">
+    收藏
+  </button>
+  <button data-action="click->favorite#unlike" data-favorite-target="unlikeBtn">
+    取消收藏
+  </button>
+</div>
 
-<%= image_tag @product.cover.variant(resize_to_limit: [200, 200]) if @product.cover.attached? %>
+<%#= link_to "收藏", like_product_path(@product), method: "post" %> <!-- 改成上面 -->
+
+<div>
+  <%= image_tag @product.cover.variant(resize_to_limit: [200, 200]) if @product.cover.attached? %>
+</div>
 
 <%= form_with(model: @comment, url: product_comments_path(@product), local: false, id: "comment_form") do |f| %>
 <%#= form_with(model: [@product, @comment]) do |f| %> <!-- 上面的漂亮寫法-->
