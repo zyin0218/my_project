@@ -1,0 +1,4 @@
+var comment_area = document.querySelector(".comment_outer")
+var content = "<%= j render 'comments/comment', comment: @comment %>"
+comment_area.insertAdjacentHTML("afterbegin", content)
+document.querySelector('#comment_form').reset()
