@@ -50,6 +50,8 @@ class ProductsController < ApplicationController
     if not @product.users.exists?(current_user.id)
       @product.users << current_user
       render json: {status: "added", id: @product.id}
+    else
+      render json: {status: "not modify", id: @product.id}
     end
   end
 
@@ -57,6 +59,8 @@ class ProductsController < ApplicationController
     if @product.users.exists?(current_user.id)
       @product.users.delete(current_user) 
       render json: {status: "removed", id: @product.id}
+    else
+      render json: {status: "not modify", id: @product.id}
     end
   end
 

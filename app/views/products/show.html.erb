@@ -1,7 +1,7 @@
 <h1>商品 <%= @product.title %></h1>
 
 <!-- 收藏 -->
-<div data-controller="favorite" data-id="<%= @product.id %>" data-favorite="<%= current_user&.like?(@product) %>">
+<div data-controller="favorite" data-id="<%= @product.id %>" data-favorited="<%= current_user&.like?(@product) %>">
   <button data-action="click->favorite#like" data-favorite-target="likeBtn">
     收藏
   </button>

@@ -7,12 +7,13 @@
 //   <h1 data-target="hello.output"></h1>
 // </div>
 
-import Rails from "@rails/ujs";
 import { Controller } from "stimulus";
+import Rails from "@rails/ujs";
+
 // import ax from "http/clients";
 
 export default class extends Controller {
-  static targets = ["likeBtn", "unlikeBtn"];
+  static targets = ["likeBtn", "unlikeBtn"]
 
   // static targets = [ "output" ]
   connect() {
@@ -28,13 +29,11 @@ export default class extends Controller {
   unlike(){
     // products/2/like
     const id = this.element.dataset.id;
-    console.log(id);
 
     Rails.ajax({
-      url: `/products/${id}/like`,
+      url: `/products/${id}/unlike`,
       type: "DELETE",
       success: ({status}) => {
-        console.log(resp);
         if (status === "removed") {
           this.likeBtnTarget.classList.add("hidden");
           this.unlikeBtnTarget.classList.remove("hidden");
@@ -49,13 +48,11 @@ export default class extends Controller {
   like(){
     // products/2/like
     const id = this.element.dataset.id;
-    console.log(id);
 
     Rails.ajax({
       url: `/products/${id}/like`,
       type: "POST",
       success: ({status}) => {
-        console.log(resp);
         if (status === "added") {
           this.likeBtnTarget.classList.remove("hidden");
           this.unlikeBtnTarget.classList.add("hidden");
