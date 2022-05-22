@@ -6,6 +6,8 @@ Rails.application.routes.draw do
     member do
       post :like
       delete :unlike
+      # /products/:id/buy
+      get :buy
     end
   end
 
