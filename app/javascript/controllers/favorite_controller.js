@@ -35,8 +35,8 @@ export default class extends Controller {
       type: "DELETE",
       success: ({status}) => {
         if (status === "removed") {
-          this.likeBtnTarget.classList.add("hidden");
-          this.unlikeBtnTarget.classList.remove("hidden");
+          this.likeBtnTarget.classList.remove("hidden");
+          this.unlikeBtnTarget.classList.add("hidden");
         }
       },
       error: (err) => {
@@ -54,8 +54,8 @@ export default class extends Controller {
       type: "POST",
       success: ({status}) => {
         if (status === "added") {
-          this.likeBtnTarget.classList.remove("hidden");
-          this.unlikeBtnTarget.classList.add("hidden");
+          this.likeBtnTarget.classList.add("hidden");
+          this.unlikeBtnTarget.classList.remove("hidden");
         }
       },
       error: (err) => {
