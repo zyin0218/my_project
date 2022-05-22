@@ -12,3 +12,9 @@ Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
 import "controllers"
+import 'jquery';
+import '@popperjs/core'; // Edit here
+import 'bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+import $ from "jquery";

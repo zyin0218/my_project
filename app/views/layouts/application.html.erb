@@ -12,7 +12,11 @@
 
   <body>
     <%= notice %>
-    <%= render "shared/navbar" %>
-    <%= yield %>
+    <div class="container-fuild">
+      <%= render "partials/navbar" %>
+    </div>
+    <div class="container">
+      <%= yield %>
+    </div>
   </body>
 </html>
